@@ -4,7 +4,7 @@ return {
 		opts = {
 			ensure_installed = {
 				'stylua',
-				'hlint'
+				'ormolu'
 			},
 			run_on_start = true,
 		},
