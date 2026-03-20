@@ -24,3 +24,4 @@ require("lazy").setup("plugins")
 
 require("setup.keymap")
 require("setup.commands")
+require("setup.lsp")
