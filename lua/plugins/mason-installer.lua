@@ -5,6 +5,7 @@ return {
         local ensure_installed = {
             "stylua",
             "ormolu",
+	    "lua-language-server"
         }
 
         return {
