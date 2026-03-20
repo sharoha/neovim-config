@@ -3,6 +3,7 @@ print("Starting to attach Lsp")
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
+    print(string.format("LspAttach fired for %s (buf %d)", vim.lsp.get_client_by_id(ev.data.client_id).name, ev.buf))
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     if client:supports_method('textDocument/completion') then
       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
