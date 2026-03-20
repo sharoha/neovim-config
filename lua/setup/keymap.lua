@@ -7,7 +7,7 @@ vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!<CR>')
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
--- telescope
+vim.keymap.set("n", "<leader>sl", "<cmd>:luafile %<CR>", { desc = "Reload the current lua file" })
 
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S] Find files]" })
@@ -15,3 +15,7 @@ vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find buff
 vim.keymap.set("n", "<leader>sn", function()
 	builtin.find_files({ cwd = vim.fn.stdpath("config") })
 end, { desc = "[S]earch neovim config" })
+
+-- for terminal
+vim.keymap.set("t", "<Esc><Esc>", "<c-\\><c-n>", { desc = "[T]erminal mode exit to normal mode" })
+
