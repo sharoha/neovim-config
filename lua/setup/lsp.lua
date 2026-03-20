@@ -1,4 +1,6 @@
-vim.lsp.enable({ "lua_ls" })
+-- Add new LSP server names here; Neovim 0.11 will load configs from lsp/<name>.lua
+local servers = { "lua_ls" }
+vim.lsp.enable(servers)
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
