@@ -5,6 +5,7 @@ return {
         ensure_installed = {
             "stylua",
             "ormolu",
+	    "lua-language-server"
         },
         run_on_start = true,
     },
