@@ -1,4 +1,4 @@
 return {
-	"folke/which-key.nvim",
-	event = "VimEnter",
+    "folke/which-key.nvim",
+    event = "VimEnter",
 }
