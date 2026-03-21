@@ -11,6 +11,7 @@ vim.keymap.set("n", "<leader>sl", "<cmd>:luafile %<CR>", { desc = "Reload the cu
 
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S] Find files]" })
+vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[G]rep across files" })
 vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find buffers]" })
 vim.keymap.set("n", "<leader>sn", function()
     builtin.find_files({ cwd = vim.fn.stdpath("config") })
@@ -21,6 +22,6 @@ vim.keymap.set("t", "<Esc><Esc>", "<c-\\><c-n>", { desc = "[T]erminal mode exit 
 
 -- for autocompletion
 --
-vim.keymap.set("i", "<leader>a", function()
+vim.keymap.set("i", "<S>a", function()
     vim.lsp.completion.get()
 end)
