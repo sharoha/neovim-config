@@ -5,7 +5,8 @@ return {
         local ensure_installed = {
             "stylua",
             "ormolu",
-	    "lua-language-server"
+	    "lua-language-server",
+	    "kotlin-lsp"
         }
 
         return {
