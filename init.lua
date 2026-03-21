@@ -25,8 +25,8 @@ require("lazy").setup("plugins")
 require("setup.keymap")
 require("setup.commands")
 require("setup.lsp")
-
 vim.cmd([[
-  hi Normal guibg=NONE ctermbg=NONE
+   hi Normal guibg=NONE ctermbg=NONE
   hi NormalNC guibg=NONE ctermbg=NONE
 ]])
+
