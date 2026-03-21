@@ -22,6 +22,6 @@ vim.keymap.set("t", "<Esc><Esc>", "<c-\\><c-n>", { desc = "[T]erminal mode exit 
 
 -- for autocompletion
 --
-vim.keymap.set("i", "<S>a", function()
+vim.keymap.set("i", "<leader>a", function()
     vim.lsp.completion.get()
 end)
