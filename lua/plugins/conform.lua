@@ -6,6 +6,8 @@ return {
         formatters_by_ft = {
             haskell = { "ormolu" },
             lua = { "stylua" },
+            markdown = { "prettierd" },
+            kotlin = { "ktlin" },
         },
     },
     keys = {
