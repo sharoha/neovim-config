@@ -8,6 +8,7 @@ return {
             lua = { "stylua" },
             markdown = { "prettierd" },
             kotlin = { "ktlin" },
+            json = { "prettierd" },
         },
     },
     keys = {

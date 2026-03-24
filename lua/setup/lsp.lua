@@ -7,7 +7,7 @@ require("mason-lspconfig").setup()
 
 -- used for managing auto download using mason annd is able to differenciate between lsp and linter
 require("mason-tool-installer").setup({
-    ensure_installed = { "lua_ls", "stylua", "prettierd", "ktlint" },
+    ensure_installed = { "lua_ls", "stylua", "prettierd", "ktlint", "kotlin-lsp" },
 })
 
 require("blink.cmp").setup({
