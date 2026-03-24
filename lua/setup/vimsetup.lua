@@ -29,4 +29,11 @@ vim.o.scrolloff = 10
 
 vim.o.confirm = true
 
-vim.opt.path:append '**'
+vim.opt.path:append("**")
+
+vim.opt.wildignore:append({
+    "*/.git/*",
+    "*/build/*",
+    "*/dist/*",
+    "*/node_modules/*",
+})
