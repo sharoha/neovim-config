@@ -1,4 +1,4 @@
--- Call a funciton on a buffer(in this example 8 is the buffer number of a kotlin class that i am experimeting with.
+-- Call a funciton on a buffer(in this example 45 is the buffer number of a kotlin class that i am experimeting with.
 -- order is important, so helper function needs to be defined first
 local function clients_as_json(clients)
     local out = {}
@@ -21,8 +21,8 @@ local function clients_as_json(clients)
     end
     return vim.json.encode(out) -- or vim.fn.json_encode(out)
 end
-vim.api.nvim_buf_call(8, function()
-    local buf_num = 8
+vim.api.nvim_buf_call(45, function()
+    local buf_num = 45
     print("Now in buffer", vim.api.nvim_get_current_buf())
 
     -- this method can be used to get the active lsp client on this buffer
@@ -49,7 +49,7 @@ vim.api.nvim_buf_call(8, function()
                 return
             end
         end,
-        8
+        45
     )
 end)
 
