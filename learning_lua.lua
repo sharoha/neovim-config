@@ -1,4 +1,4 @@
--- Call a funciton on a buffer(in this example 14 is the buffer number of a kotlin class that i am experimeting with.
+-- Call a funciton on a buffer(in this example 8 is the buffer number of a kotlin class that i am experimeting with.
 -- order is important, so helper function needs to be defined first
 local function clients_as_json(clients)
     local out = {}
@@ -21,8 +21,8 @@ local function clients_as_json(clients)
     end
     return vim.json.encode(out) -- or vim.fn.json_encode(out)
 end
-vim.api.nvim_buf_call(14, function()
-    local buf_num = 14
+vim.api.nvim_buf_call(8, function()
+    local buf_num = 8
     print("Now in buffer", vim.api.nvim_get_current_buf())
 
     -- this method can be used to get the active lsp client on this buffer
@@ -49,10 +49,24 @@ vim.api.nvim_buf_call(14, function()
                 return
             end
         end,
-        14
+        8
     )
 end)
 
+-- seems like for kotlin project to recognize a intTest directory, following gradle configuration is required:
+-- 
+--val intTest by sourceSets.creating {
+--	kotlin.srcDir("intTest/kotlin")
+--	resources.srcDir("intTest/resources")
+--
+--	compileClasspath += sourceSets.main.get().output + configurations.testRuntimeClasspath.get()
+--	runtimeClasspath += output + compileClasspath
+--}
+--
+--configurations[intTest.implementationConfigurationName].extendsFrom(configurations.testImplementation.get())
+--configurations[intTest.runtimeOnlyConfigurationName].extendsFrom(configurations.testRuntimeOnly.get())
+
+--
 -- for diagnostic remember this
 -- These diagnostic keymaps are created unconditionally when Nvim starts:
 --]d jumps to the next diagnostic in the buffer. ]d-default
