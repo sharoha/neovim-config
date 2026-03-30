@@ -1,4 +1,13 @@
 require("setup.vimsetup")
+local github_pref = "https://github.com/"
+vim.pack.add({
+    github_pref .. "mason-org/mason.nvim",
+    github_pref .. "WhoIsSethDaniel/mason-tool-installer.nvim",
+    github_pref .. "mason-org/mason-lspconfig.nvim",
+    github_pref .. "neovim/nvim-lspconfig",
+    github_pref .. "saghen/blink.cmp",
+    github_pref .. "folke/which-key.nvim",
+})
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -20,6 +29,7 @@ end
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
+
 require("lazy").setup("plugins")
 
 require("setup.keymap")
@@ -29,5 +39,3 @@ vim.cmd([[
    hi Normal guibg=NONE ctermbg=NONE
     hi NormalNC guibg=NONE ctermbg=NONE
 ]])
-
-
