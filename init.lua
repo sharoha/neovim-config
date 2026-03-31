@@ -69,24 +69,24 @@ require("telescope").setup({
 pcall(require("telescope").load_extension, "fzf")
 pcall(require("telescope").load_extension, "ui-select")
 
--- treesitter
-require("nvim-treesitter.config").setup({
-    ensure_installed = {
-        "java",
-        "kotlin",
-        "haskell",
-        "lua",
-        "vim",
-        "yaml",
-        "markdown",
-        "vimdoc",
-    },
-    auto_install = true,
-    highlight = {
-        enable = true,
-    },
-    indent = { enable = true },
-})
+-- treesitter - seems like this does not have any behavior update
+--require("nvim-treesitter.config").setup({
+--    ensure_installed = {
+--        "java",
+--        "kotlin",
+--        "haskell",
+--        "lua",
+--        "vim",
+--        "yaml",
+--        "markdown",
+--        "vimdoc",
+--    },
+--    auto_install = true,
+--    highlight = {
+--        enable = true,
+--    },
+--    indent = { enable = true },
+--})
 require("setup.keymap")
 require("setup.commands")
 require("setup.lsp")
