@@ -1,14 +1,50 @@
 require("setup.vimsetup")
 local github_pref = "https://github.com/"
+
 vim.pack.add({
-    github_pref .. "mason-org/mason.nvim",
-    github_pref .. "WhoIsSethDaniel/mason-tool-installer.nvim",
-    github_pref .. "mason-org/mason-lspconfig.nvim",
-    github_pref .. "neovim/nvim-lspconfig",
-    github_pref .. "saghen/blink.cmp",
-    github_pref .. "folke/which-key.nvim",
+    "https://github.com/mason-org/mason.nvim",
+    "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
+    "https://github.com/mason-org/mason-lspconfig.nvim",
+    "https://github.com/neovim/nvim-lspconfig",
+    "https://github.com/saghen/blink.cmp",
+    "https://github.com/folke/which-key.nvim",
+  -- telescope
+
+--    "https://github.com/nvim-telescope/telescope.nvim",
+--
+--        "https://github.com/nvim-lua/plenary.nvim",
+--"https://github.com/nvim-telescope/telescope-fzf-native.nvim"
 })
 
+local github = function(item) 
+	return github_pref .. item
+end
+
+local hooks = function(ev) 
+	print('lsp setup has been called')
+require("setup.lsp")
+end
+vim.api.nvim_create_autocmd('PackChanged', {
+	callback = hooks
+})
+
+
+--local pac = vim.pack.get()
+--local names = vim.iter(pac)
+--:map(function(x) return x.spec.name end)
+--:totable()
+--print(vim.inspect(pac))
+--vim.pack.del(names)
+
+--require("telescope").setup({
+--            defaults = {
+--                path_display = { "truncate" },
+--                file_ignore_patterns = { "^.git/" },
+--            },
+--        })
+--        pcall(require("telescope").load_extension, "fzf")
+--        pcall(require("telescope").load_extension, "ui-select")
+--
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
