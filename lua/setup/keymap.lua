@@ -24,3 +24,7 @@ vim.keymap.set("t", "<Esc><Esc>", "<c-\\><c-n>", { desc = "[T]erminal mode exit 
 vim.keymap.set("n", "<leader>f", function()
     require("conform").format({ async = true, lsp_format = "fallback" })
 end, { desc = "[F]ormat buffer" })
+
+-- neogit
+
+vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>", { desc = "Show Neogit UI" })
