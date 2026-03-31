@@ -19,12 +19,23 @@ vim.pack.add({
     "https://github.com/nvim-tree/nvim-web-devicons",
 
     "https://github.com/NeogitOrg/neogit",
+
+    "https://github.com/nvim-treesitter/nvim-treesitter",
 })
 
 require("oil").setup({
     default_file_explorer = true,
 })
 
+-- setit up for this plugin setup
+--return {
+--    "sharoha/jvm-test-runner.nvim",
+--
+--
+--    config = function()
+--        require("jvm-test-runner").setup({})
+--    end,
+--}
 local function setup_conform()
     require("conform").setup({
         formatters_by_ft = {
@@ -58,29 +69,24 @@ require("telescope").setup({
 pcall(require("telescope").load_extension, "fzf")
 pcall(require("telescope").load_extension, "ui-select")
 
---local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
---if not (vim.uv or vim.loop).fs_stat(lazypath) then
---    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
---    local out = vim.fn.system({
---        "git",
---        "clone",
---        "--filter=blob:none",
---        "--branch=stable",
---        lazyrepo,
---        lazypath,
---    })
---    if vim.v.shell_error ~= 0 then
---        error("Error cloning lazy" .. out)
---    end
---end
---
------@type vim.Option
---local rtp = vim.opt.rtp
---rtp:prepend(lazypath)
---
-
---require("lazy").setup("plugins")
-
+-- treesitter
+require("nvim-treesitter.config").setup({
+    ensure_installed = {
+        "java",
+        "kotlin",
+        "haskell",
+        "lua",
+        "vim",
+        "yaml",
+        "markdown",
+        "vimdoc",
+    },
+    auto_install = true,
+    highlight = {
+        enable = true,
+    },
+    indent = { enable = true },
+})
 require("setup.keymap")
 require("setup.commands")
 require("setup.lsp")
