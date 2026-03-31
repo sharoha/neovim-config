@@ -14,8 +14,17 @@ vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S] Find files]"
 vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[G]rep across files" })
 vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find buffers]" })
 vim.keymap.set("n", "<leader>sn", function()
-	builtin.find_files({ cwd = vim.fn.stdpath("config") })
+    builtin.find_files({ cwd = vim.fn.stdpath("config") })
 end, { desc = "[S]earch neovim config" })
 
 -- for terminal
 vim.keymap.set("t", "<Esc><Esc>", "<c-\\><c-n>", { desc = "[T]erminal mode exit to normal mode" })
+
+-- conform
+vim.keymap.set("n", "<leader>f", function()
+    require("conform").format({ async = true, lsp_format = "fallback" })
+end, { desc = "[F]ormat buffer" })
+
+-- neogit
+
+vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>", { desc = "Show Neogit UI" })
