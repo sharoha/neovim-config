@@ -1,41 +1,40 @@
 require("setup.vimsetup")
 
+local gh = function(plug)
+    return "https://github.com/" .. plug
+end
+
 vim.pack.add({
-    "https://github.com/mason-org/mason.nvim",
-    "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
-    "https://github.com/mason-org/mason-lspconfig.nvim",
-    "https://github.com/neovim/nvim-lspconfig",
-    "https://github.com/saghen/blink.cmp",
-    "https://github.com/folke/which-key.nvim",
+    gh("mason-org/mason.nvim"),
+    gh("WhoIsSethDaniel/mason-tool-installer.nvim"),
+    gh("mason-org/mason-lspconfig.nvim"),
+    gh("neovim/nvim-lspconfig"),
+    gh("saghen/blink.cmp"),
+    gh("folke/which-key.nvim"),
     -- telescope
 
-    "https://github.com/nvim-telescope/telescope.nvim",
-    "https://github.com/nvim-lua/plenary.nvim",
-    "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
+    gh("nvim-telescope/telescope.nvim"),
+    gh("nvim-lua/plenary.nvim"),
+    gh("nvim-telescope/telescope-fzf-native.nvim"),
     -- oil
-    "https://github.com/stevearc/oil.nvim",
+    gh("stevearc/oil.nvim"),
 
-    "https://github.com/stevearc/conform.nvim",
-    "https://github.com/nvim-tree/nvim-web-devicons",
+    gh("stevearc/conform.nvim"),
+    gh("nvim-tree/nvim-web-devicons"),
 
-    "https://github.com/NeogitOrg/neogit",
+    gh("NeogitOrg/neogit"),
 
-    "https://github.com/nvim-treesitter/nvim-treesitter",
+    gh("nvim-treesitter/nvim-treesitter"),
+
+    gh("sharoha/jvm-test-runner.nvim"),
 })
 
 require("oil").setup({
     default_file_explorer = true,
 })
 
--- setit up for this plugin setup
---return {
---    "sharoha/jvm-test-runner.nvim",
---
---
---    config = function()
---        require("jvm-test-runner").setup({})
---    end,
---}
+require("jvm-test-runner").setup({})
+
 local function setup_conform()
     require("conform").setup({
         formatters_by_ft = {
