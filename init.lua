@@ -18,7 +18,6 @@ vim.pack.add({
     gh("nvim-telescope/telescope-fzf-native.nvim"),
     -- oil
     gh("stevearc/oil.nvim"),
-
     gh("stevearc/conform.nvim"),
     gh("nvim-tree/nvim-web-devicons"),
 
@@ -27,7 +26,11 @@ vim.pack.add({
     gh("nvim-treesitter/nvim-treesitter"),
 
     gh("sharoha/jvm-test-runner.nvim"),
+
+    gh("folke/tokyonight.nvim"),
 })
+
+vim.cmd([[colorscheme tokyonight]])
 
 require("oil").setup({
     default_file_explorer = true,
@@ -69,23 +72,22 @@ pcall(require("telescope").load_extension, "fzf")
 pcall(require("telescope").load_extension, "ui-select")
 
 -- treesitter - seems like this does not have any behavior update
---require("nvim-treesitter.config").setup({
---    ensure_installed = {
---        "java",
---        "kotlin",
---        "haskell",
---        "lua",
---        "vim",
---        "yaml",
---        "markdown",
---        "vimdoc",
---    },
---    auto_install = true,
---    highlight = {
---        enable = true,
---    },
---    indent = { enable = true },
---})
+-- neovim auto install some parsers: lua, vim, markdown, c,
+-- So for automation for others we need nvim-treesitter
+local ts = require("nvim-treesitter")
+local already_installed = ts.get_installed()
+local ensure_installed = { "kotlin", "java" }
+
+local to_install = vim.iter(ensure_installed)
+    :filter(function(parser)
+        return not vim.tbl_contains(already_installed, parser)
+    end)
+    :totable()
+
+if #to_install > 0 then
+    ts.install(to_install)
+end
+
 require("setup.keymap")
 require("setup.commands")
 require("setup.lsp")
