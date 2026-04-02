@@ -2,4 +2,5 @@ lazy-lock.json
 .git/*
 .nvimlog
 nvim-pack-lock.json
+nvim.log
 

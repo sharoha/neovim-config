@@ -54,7 +54,7 @@ vim.api.nvim_buf_call(45, function()
 end)
 
 -- seems like for kotlin project to recognize a intTest directory, following gradle configuration is required:
--- 
+--
 --val intTest by sourceSets.creating {
 --	kotlin.srcDir("intTest/kotlin")
 --	resources.srcDir("intTest/resources")
@@ -74,3 +74,19 @@ end)
 --]D jumps to the last diagnostic in the buffer. ]D-default
 --[D jumps to the first diagnostic in the buffer. [D-default
 --<C-w>d shows diagnostic at cursor in a floating window. CTRL-W_d-defaultk
+
+-- Some useful command to get list of plugins installed
+--local pac = vim.pack.get()
+--local names = vim.iter(pac)
+--    :map(function(x)
+--        return x.spec.name
+--    end)
+--    :totable()
+--
+--local installed = require("nvim-treesitter").get_installed()
+--
+--print(vim.inspect(installed))
+--
+--print(vim.treesitter.get_node() and vim.treesitter.get_node():type() or "nts node")
+--
+--print(vim.inspect(vim.api.nvim_get_runtime_file("parser/*.so", true)))
