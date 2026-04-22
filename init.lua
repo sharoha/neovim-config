@@ -1,7 +1,6 @@
 local gh = function(plug)
     return "https://github.com/" .. plug
 end
-
 vim.pack.add({
     gh("mason-org/mason.nvim"),
     gh("WhoIsSethDaniel/mason-tool-installer.nvim"),
@@ -11,11 +10,11 @@ vim.pack.add({
     gh("folke/which-key.nvim"),
     -- telescope
 
+    gh("nvim-mini/mini.files"),
     gh("nvim-telescope/telescope.nvim"),
     gh("nvim-lua/plenary.nvim"),
     gh("nvim-telescope/telescope-fzf-native.nvim"),
     -- oil
-    gh("stevearc/oil.nvim"),
     gh("stevearc/conform.nvim"),
     gh("nvim-tree/nvim-web-devicons"),
 
