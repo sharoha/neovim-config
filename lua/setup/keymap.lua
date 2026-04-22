@@ -1,4 +1,9 @@
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open Current directory in Oil" })
+vim.keymap.set(
+    "n",
+    "-",
+    "<CMD>lua MiniFiles.open()<CR>",
+    { desc = "Open Current directory in MiniFiles" }
+)
 
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!<CR>')
 vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!<CR>')

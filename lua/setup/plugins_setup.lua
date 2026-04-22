@@ -1,9 +1,5 @@
 vim.cmd([[colorscheme tokyonight]])
 
-require("oil").setup({
-    default_file_explorer = true,
-})
-
 require("mini.files").setup({})
 require("jvm-test-runner").setup({})
 
