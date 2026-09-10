@@ -33,3 +33,10 @@ end, { desc = "[F]ormat buffer" })
 -- neogit
 
 vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>", { desc = "Show Neogit UI" })
+
+vim.keymap.set("n", "<leader>fb", "<cmd>:ls<cr>:b<space>")
+vim.keymap.set("n", "<leader>st", builtin.git_files, { desc = "[ ] Find buffers]" })
+
+vim.keymap.set("n", "<leader>su", builtin.autocommands, { desc = "[ ] Find buffers]" })
+
+vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Paste without losing register" })
