@@ -88,3 +88,4 @@ vim.keymap.set("n", "<leader>t", function()
         show_terminal(zsh_buf_id)
     end
 end, { desc = "open terminal below at 30% height" })
+
