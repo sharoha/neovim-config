@@ -1,3 +1,4 @@
+
 local gh = function(plug)
     return "https://github.com/" .. plug
 end
@@ -7,6 +8,7 @@ vim.pack.add({
     gh("mason-org/mason-lspconfig.nvim"),
     gh("neovim/nvim-lspconfig"),
     gh("saghen/blink.cmp"),
+    gh("saghen/blink.lib"),
     gh("folke/which-key.nvim"),
     -- telescope
 
